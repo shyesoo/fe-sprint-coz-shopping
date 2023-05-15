@@ -7,8 +7,9 @@ const HeaderContainer = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: 76px;
-    margin-right: 76px;
+    padding-left: 76px;
+    padding-right: 76px;
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.1);
 `
 
 const TitleContainer = styled.div`
