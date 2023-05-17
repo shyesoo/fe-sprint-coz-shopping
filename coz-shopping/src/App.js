@@ -18,6 +18,7 @@ export const loader = async () => {
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [isBookmarked, setIsBookmarked] = useState([]);
 
   useEffect(() => {
     axios
@@ -30,14 +31,27 @@ function App() {
       });
   }, []);
 
+
   return (
     <BrowserRouter>
       <div className='App'>
         <Header />
         <Routes>
-          <Route path="/" element={<Main products={products}/>} />
-          <Route path="/products/list" element={<Products products={products} />} />
-          <Route path="/bookmark" element={<Bookmarks />} />
+          <Route path="/" element={<Main 
+            products={products}
+            isBookmarked={isBookmarked}
+            setIsBookmarked={setIsBookmarked}
+            />} />
+          <Route path="/products/list" element={<Products 
+            products={products}
+            isBookmarked={isBookmarked}
+            setIsBookmarked={setIsBookmarked}
+            />} />
+          <Route path="/bookmark" element={<Bookmarks
+            products={products}
+            isBookmarked={isBookmarked}
+            setIsBookmarked={setIsBookmarked}
+            />} />
         </Routes>
         <Footer />
       </div>

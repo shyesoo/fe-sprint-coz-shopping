@@ -1,8 +1,8 @@
-import React, {useState} from "react";
 import styled from "styled-components";
 
 import bookmarkOn from '../img/bookmark_on.svg'
 import bookmarkOff from '../img/bookmark_off.svg'
+import { useState, useEffect } from "react";
 
 const ProductContainer = styled.li`
     height: 265px;
@@ -13,15 +13,21 @@ const ProductContainer = styled.li`
     margin-right: 12px;
 `
 const ImageContainer = styled.div`
+    position: relative;
     height: 200px;
     width: 260px;
 `
-
 const Image = styled.img`
     height: 200px;
     width: 260px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 12px;
+`
+const Star = styled.img`
+    cursor: pointer;
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
 `
 const ExBox = styled.div`
     display: flex;
@@ -62,9 +68,39 @@ const Price = styled.p`
 `
 
 const Product = ({ product }) => {
+    const [bookmarked, setBookmarked] = useState(false);
+    useEffect(() => {
+        const bookmarkList = localStorage.getItem('bookmarks');
+        if (bookmarkList) {
+          const parsedList = JSON.parse(bookmarkList);
+          const isBookmarked = parsedList.some((item) => item.id === product.id);
+          setBookmarked(isBookmarked);
+        }
+      }, [product.id]);
+
     if(!product){
         return <ProductContainer>아무것도 없어용</ProductContainer>
     }
+
+
+    const toggleBookmark = () => {
+        let bookmarkList = localStorage.getItem('bookmarks');
+        if(!bookmarkList){
+          bookmarkList = [];
+        } else {
+          bookmarkList = JSON.parse(bookmarkList);
+        }
+        const removingIndex = bookmarkList.findIndex((item) => item.id === product.id);
+        if (removingIndex !== -1) {
+          bookmarkList.splice(removingIndex, 1);
+        } else {
+          bookmarkList.push(product);
+        }
+        localStorage.setItem('bookmarks', JSON.stringify(bookmarkList));
+
+        setBookmarked(!bookmarked)
+    };
+    
 
     const id = product.id;
     const type = product.type;
@@ -94,9 +130,14 @@ const Product = ({ product }) => {
     }
 
     return (
-        <ProductContainer key={product.id}>
+        <ProductContainer key={id}>
             <ImageContainer>
                 <Image src={imgUrl} alt={name}/>
+                <Star
+                    src={bookmarked ? bookmarkOn : bookmarkOff}
+                    alt={bookmarked ? "bookmarked" : "not bookmarked"}
+                    onClick={(e) => toggleBookmark()}
+                />
             </ImageContainer>
             <ExBox>
                 <Explanation>

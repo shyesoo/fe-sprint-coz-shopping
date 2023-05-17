@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import styled from "styled-components";
 
 import Product from "../components/Product";
-import { dummyData } from "../static/dummyData";
 
 import img_all from "../img/typeImg_all.svg"
 import img_brand from "../img/typeImg_brand.svg"
@@ -106,7 +105,7 @@ const Products = ({products}) => {
         <ProductList>
             {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
-                <Product key={product.id} product={product} />
+                <Product key={product.id} product={product}/>
             ))
             ) : (
             <p>해당 카테고리에 상품이 없습니다.</p>

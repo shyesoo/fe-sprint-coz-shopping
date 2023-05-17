@@ -30,7 +30,6 @@ const ProductList = styled.div`
     grid-gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
-    margin-top: 50px;
     align-items: center;
 
     @media (min-width: 1200px) {
@@ -49,8 +48,6 @@ const ProductList = styled.div`
         grid-template-columns: repeat(1, 1fr);
     }
 `
-
-
 
 const Main = ({products}) => {
 
