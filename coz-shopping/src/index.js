@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { dummyData } from './static/dummyData';
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <App dummyData={dummyData}/>
