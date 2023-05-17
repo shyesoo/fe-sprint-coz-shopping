@@ -50,6 +50,7 @@ const ProductList = styled.div`
 `
 
 const Main = ({products}) => {
+    const bookmarkList = JSON.parse(localStorage.getItem('bookmarks'));
 
     return (
         <MainContainer>
@@ -61,9 +62,9 @@ const Main = ({products}) => {
             </ProductList>
             <Title>북마크 리스트</Title>
             <ProductList>
-                {products.slice(0,4).map((product) => {
-                        return ( <Product product={product}/>)
-                    })}
+                {bookmarkList.slice(0,4).map((product) => (
+                    <Product key={product.id} product={product}/>
+                ))}
             </ProductList>
         </MainContainer>
     )

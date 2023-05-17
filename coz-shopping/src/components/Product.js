@@ -99,6 +99,7 @@ const Product = ({ product }) => {
         localStorage.setItem('bookmarks', JSON.stringify(bookmarkList));
 
         setBookmarked(!bookmarked)
+        
     };
     
 

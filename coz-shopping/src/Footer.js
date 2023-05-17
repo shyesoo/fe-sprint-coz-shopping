@@ -8,6 +8,7 @@ const FooterContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 `
 

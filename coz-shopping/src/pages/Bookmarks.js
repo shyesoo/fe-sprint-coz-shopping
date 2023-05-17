@@ -66,7 +66,6 @@ const categories = ['all', 'product', 'category', 'exhibition', 'brand'];
 
 const Bookmarks = ({products}) => {
   const [ selected, setSelected ] = useState('all')
-  const [bookmarkedProducts, setBookmarkedProducts] = useState([]);
   
   const bookmarkList = JSON.parse(localStorage.getItem('bookmarks'));
 

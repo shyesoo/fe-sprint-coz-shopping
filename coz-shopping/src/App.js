@@ -19,6 +19,7 @@ export const loader = async () => {
 function App() {
   const [products, setProducts] = useState([]);
   const [isBookmarked, setIsBookmarked] = useState([]);
+  const [bookmarkedProducts, setBookmarkedProducts] = useState(localStorage.getItem("bookmarks"));
 
   useEffect(() => {
     axios
@@ -29,7 +30,14 @@ function App() {
       .catch((error) => {
         console.error('Error fetching products:', error);
       });
-  }, []);
+  },[]);
+
+  useEffect(() => {
+    const bookmarkList = localStorage.getItem('bookmarks');
+    if (bookmarkList) {
+      setBookmarkedProducts(JSON.parse(bookmarkList));
+    }
+  }, [bookmarkedProducts]);
 
 
   return (
