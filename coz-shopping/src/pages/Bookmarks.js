@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 
 import Product from "../components/Product";
@@ -65,28 +65,21 @@ const ProductList = styled.div`
 const categories = ['all', 'product', 'category', 'exhibition', 'brand'];
 
 const Bookmarks = ({products}) => {
-    const [ selected, setSelected ] = useState('all')
+  const [ selected, setSelected ] = useState('all')
+  const [bookmarkedProducts, setBookmarkedProducts] = useState([]);
+  
+  const bookmarkList = JSON.parse(localStorage.getItem('bookmarks'));
 
-    const handleCategoryClick = (category) => {
-        setSelected(category);
-    }
+  const handleCategoryClick = (category) => {
+      setSelected(category);
+  }
 
-    const bookmarkedProducts = products.filter((product) => {
-      let bookmarkList = localStorage.getItem('bookmarks');
-      if(!bookmarkList){
-        bookmarkList = [];
-      } else {
-        bookmarkList = JSON.parse(bookmarkList);
+  const filteredProducts = bookmarkList.filter((product) => {
+      if (selected === "all") {
+        return true;
       }
-      
-    })
-
-    const filteredProducts = products.filter((product) => {
-        if (selected === "all") {
-          return true;
-        }
-        return product.type.toLowerCase() === selected.toLowerCase(); // 대소문자 구분 없이 필터링
-      });
+      return product.type.toLowerCase() === selected.toLowerCase(); // 대소문자 구분 없이 필터링
+    });
 
   return (
     <Main>
@@ -118,7 +111,7 @@ const Bookmarks = ({products}) => {
                 <Product key={product.id} product={product}/>
             ))
             ) : (
-            <p>해당 카테고리에 상품이 없습니다.</p>
+            <Text>해당 카테고리에 상품이 없습니다.</Text>
             )}
         </ProductList>
     </Main>
