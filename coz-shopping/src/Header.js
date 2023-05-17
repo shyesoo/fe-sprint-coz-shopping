@@ -93,10 +93,10 @@ const Header = () => {
                 <MenuContainer>
                     <MenuItem href="#">ㅇㅇㅇ님, 안녕하세요!</MenuItem>
                     <Link to={'/products/list'} className='deleted-line'>
-                        <MenuItem href="#">상품리스트 페이지</MenuItem>
+                        <MenuItem href="#" onClick={handleMenuToggle}>상품리스트 페이지</MenuItem>
                     </Link>
                     <Link to={'/bookmark'} className='deleted-line'>
-                        <MenuItem href="#">북마크 페이지</MenuItem>
+                        <MenuItem href="#" onClick={handleMenuToggle}>북마크 페이지</MenuItem>
                     </Link>
                 </MenuContainer>
             </MenuToggle>

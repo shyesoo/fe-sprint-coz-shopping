@@ -1,4 +1,52 @@
 export const dummyData = [
+  {
+    "id": 79,
+    "type": "Exhibition",
+    "title": "멍냥이도 꿀잠이 필요해",
+    "sub_title": "반려동물을 위한 수면용품",
+    "brand_name": null,
+    "price": null,
+    "discountPercentage": null,
+    "image_url": "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2060&q=80",
+    "brand_image_url": null,
+    "follower": null
+},
+{
+    "id": 52,
+    "type": "Exhibition",
+    "title": "음식의 색채",
+    "sub_title": "색깔별 음식 모음전",
+    "brand_name": null,
+    "price": null,
+    "discountPercentage": null,
+    "image_url": "https://images.unsplash.com/photo-1491600395818-515d7b81de11?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1785&q=80",
+    "brand_image_url": null,
+    "follower": null
+},
+{
+    "id": 91,
+    "type": "Brand",
+    "title": null,
+    "sub_title": null,
+    "brand_name": "반스",
+    "price": null,
+    "discountPercentage": null,
+    "image_url": null,
+    "brand_image_url": "https://images.unsplash.com/photo-1560858001-2a568c6ea1d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    "follower": 5022
+},
+{
+    "id": 33,
+    "type": "Product",
+    "title": "프리미엄 리넨 셔츠",
+    "sub_title": null,
+    "brand_name": null,
+    "price": "39900",
+    "discountPercentage": 30,
+    "image_url": "https://images.unsplash.com/photo-1626497764746-6dc36546b388?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1326&q=80",
+    "brand_image_url": null,
+    "follower": null
+},
     {
       id: 22,
       type: "Product",
