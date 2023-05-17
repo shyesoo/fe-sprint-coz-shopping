@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
+
 import { FaBars } from 'react-icons/fa';
 import logo from "./img/logo.svg"
 
@@ -79,17 +81,23 @@ const Header = () => {
     return (
         <div>
             <HeaderContainer>
-                <TitleContainer>
-                    <Logo src={logo} alt="logo"/>
-                    <Title>COZ Shopping</Title>
-                </TitleContainer>
+                <Link to={'/'} className='deleted-line'>
+                    <TitleContainer>
+                        <Logo src={logo} alt="logo"/>
+                        <Title>COZ Shopping</Title>
+                    </TitleContainer>
+                </Link>
                 <MenuIcon onClick={handleMenuToggle}/>
             </HeaderContainer>
             <MenuToggle isOpen={isMenuOpen}>
                 <MenuContainer>
                     <MenuItem href="#">ㅇㅇㅇ님, 안녕하세요!</MenuItem>
-                    <MenuItem href="#">상품리스트 페이지</MenuItem>
-                    <MenuItem href="#">북마크 페이지</MenuItem>
+                    <Link to={'/products/list'} className='deleted-line'>
+                        <MenuItem href="#">상품리스트 페이지</MenuItem>
+                    </Link>
+                    <Link to={'/bookmark'} className='deleted-line'>
+                        <MenuItem href="#">북마크 페이지</MenuItem>
+                    </Link>
                 </MenuContainer>
             </MenuToggle>
         </div>
