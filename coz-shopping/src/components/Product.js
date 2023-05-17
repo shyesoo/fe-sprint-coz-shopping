@@ -67,7 +67,7 @@ const Price = styled.p`
     right: 0;
 `
 
-const Product = ({ product }) => {
+const Product = ({ product, notify }) => {
     const [bookmarked, setBookmarked] = useState(false);
     useEffect(() => {
         const bookmarkList = localStorage.getItem('bookmarks');
@@ -98,8 +98,9 @@ const Product = ({ product }) => {
         }
         localStorage.setItem('bookmarks', JSON.stringify(bookmarkList));
 
-        setBookmarked(!bookmarked)
-        
+        setBookmarked(!bookmarked);
+        if(bookmarked) notify('off')
+        else if(!bookmarked) notify('on')
     };
     
 

@@ -49,7 +49,7 @@ const ProductList = styled.div`
     }
 `
 
-const Main = ({products}) => {
+const Main = ({products, notify}) => {
     const bookmarkList = JSON.parse(localStorage.getItem('bookmarks'));
 
     return (
@@ -57,13 +57,13 @@ const Main = ({products}) => {
             <Title>상품 리스트</Title>
             <ProductList>
                 {products.slice(0,4).map((product) => {
-                    return ( <Product key={product.id} product={product}/>)
+                    return ( <Product key={product.id} product={product} notify={notify}/>)
                 })}
             </ProductList>
             <Title>북마크 리스트</Title>
             <ProductList>
                 {bookmarkList.slice(0,4).map((product) => (
-                    <Product key={product.id} product={product}/>
+                    <Product key={product.id} product={product} notify={notify}/>
                 ))}
             </ProductList>
         </MainContainer>
