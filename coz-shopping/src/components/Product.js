@@ -67,8 +67,10 @@ const Price = styled.p`
     right: 0;
 `
 
-const Product = ({ product, notify }) => {
+const Product = ({ product, isModalOpen, setIsModalOpen, notify }) => {
     const [bookmarked, setBookmarked] = useState(false);
+    const [selectedId, setSelectedId] = useState('');
+
     useEffect(() => {
         const bookmarkList = localStorage.getItem('bookmarks');
         if (bookmarkList) {
@@ -81,7 +83,6 @@ const Product = ({ product, notify }) => {
     if(!product){
         return <ProductContainer>아무것도 없어용</ProductContainer>
     }
-
 
     const toggleBookmark = () => {
         let bookmarkList = localStorage.getItem('bookmarks');
@@ -102,8 +103,11 @@ const Product = ({ product, notify }) => {
         if(bookmarked) notify('off')
         else if(!bookmarked) notify('on')
     };
-    
 
+    const openModal = () => {
+        setIsModalOpen(true);
+    }
+    
     const id = product.id;
     const type = product.type;
     let imgUrl = "";
@@ -131,8 +135,12 @@ const Product = ({ product, notify }) => {
         imgUrl = product.brand_image_url;
     }
 
+    const handleProductId = (id) => {
+        setSelectedId(id)
+    }
+
     return (
-        <ProductContainer key={id}>
+        <ProductContainer key={id} onClick={() => openModal}>
             <ImageContainer>
                 <Image src={imgUrl} alt={name}/>
                 <Star
