@@ -64,7 +64,7 @@ const ProductList = styled.div`
 
 const categories = ['all', 'product', 'category', 'exhibition', 'brand'];
 
-const Products = ({products}) => {
+const Products = ({products, notify}) => {
     const [ selected, setSelected ] = useState('all')
 
     const handleCategoryClick = (category) => {
@@ -105,7 +105,7 @@ const Products = ({products}) => {
         <ProductList>
             {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
-                <Product key={product.id} product={product}/>
+                <Product key={product.id} product={product} notify={notify}/>
             ))
             ) : (
             <p>해당 카테고리에 상품이 없습니다.</p>

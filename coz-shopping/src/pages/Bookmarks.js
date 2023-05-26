@@ -64,9 +64,8 @@ const ProductList = styled.div`
 
 const categories = ['all', 'product', 'category', 'exhibition', 'brand'];
 
-const Bookmarks = ({products}) => {
+const Bookmarks = ({products, notify}) => {
   const [ selected, setSelected ] = useState('all')
-  const [bookmarkedProducts, setBookmarkedProducts] = useState([]);
   
   const bookmarkList = JSON.parse(localStorage.getItem('bookmarks'));
 
@@ -108,7 +107,7 @@ const Bookmarks = ({products}) => {
         <ProductList>
             {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
-                <Product key={product.id} product={product}/>
+                <Product key={product.id} product={product} notify={notify}/>
             ))
             ) : (
             <Text>해당 카테고리에 상품이 없습니다.</Text>
